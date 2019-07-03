@@ -22,9 +22,14 @@
                   <router-link to="/layout">Layout</router-link>
                 </a-menu-item>
                 <a-menu-item key="4">
-                  <a-avatar style="backgroundColor:#87d068" icon="user" />
-                  <div>{{this.$store.state.user.username}}</div>
-                  <a-button type="primary" v-on:click="logout">Exit</a-button>
+                  <a-row>
+                    <a-col :xs="20" :sm="16" :md="12" :lg="8" :xl="12">
+                      <span>{{this.$store.state.user.username}}</span>
+                    </a-col>
+                    <a-col :xs="20" :sm="16" :md="12" :lg="8" :xl="12">
+                      <a-button type="primary" v-on:click="logout">Exit</a-button>
+                    </a-col>
+                  </a-row>
                 </a-menu-item>
               </a-menu>
             </div>
