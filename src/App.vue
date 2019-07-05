@@ -9,7 +9,7 @@
               <a-menu
                 theme="dark"
                 mode="horizontal"
-                :defaultSelectedKeys="['1']"
+                :defaultSelectedKeys="['2']"
                 :style="{ lineHeight: '64px' }"
               >
                 <a-menu-item key="1">
@@ -22,14 +22,7 @@
                   <router-link to="/layout">Layout</router-link>
                 </a-menu-item>
                 <a-menu-item key="4">
-                  <a-row>
-                    <a-col :xs="20" :sm="16" :md="12" :lg="8" :xl="12">
-                      <span>{{this.$store.state.user.username}}</span>
-                    </a-col>
-                    <a-col :xs="20" :sm="16" :md="12" :lg="8" :xl="12">
-                      <a-button type="primary" v-on:click="logout">Exit</a-button>
-                    </a-col>
-                  </a-row>
+                  <span type="primary" v-on:click="logout">{{this.$store.state.user.username}}:Exit</span>
                 </a-menu-item>
               </a-menu>
             </div>
