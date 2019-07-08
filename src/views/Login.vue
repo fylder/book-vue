@@ -1,6 +1,5 @@
 <template>
   <div class="layout">
-    <h1>This is an layout page</h1>
     <a-row>
       <a-col :span="6" :offset="9">
         <div class="login">
@@ -10,6 +9,9 @@
             class="login-form"
             @submit="handleSubmit"
           >
+            <div>
+              <h2>Login</h2>
+            </div>
             <a-form-item>
               <a-input
                 v-decorator="[
@@ -22,7 +24,7 @@
                 ]"
                 placeholder="Username"
               >
-                <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
+                <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)"/>
               </a-input>
             </a-form-item>
             <a-form-item>
@@ -38,7 +40,7 @@
                 type="password"
                 placeholder="Password"
               >
-                <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+                <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)"/>
               </a-input>
             </a-form-item>
             <a-form-item>
@@ -51,9 +53,9 @@
                   }
                 ]"
               >Remember me</a-checkbox>
-              <a class="login-form-forgot" href>Forgot password</a>
+              <a class="login-form-forgot" href="">Forgot password</a>
               <a-button type="primary" html-type="submit" class="login-form-button">Log in</a-button>Or
-              <a href>register now!</a>
+              <a href="">register now!</a>
             </a-form-item>
           </a-form>
         </div>
@@ -101,5 +103,6 @@ export default {
 }
 .login {
   width: 100%;
+  margin-top: 20%;
 }
 </style>
