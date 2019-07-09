@@ -3,7 +3,7 @@ export default class UserModel {
   public password: string;
 
   constructor() {
-    this.username = "fylder";
+    this.username = "";
     this.password = "";
   }
 }

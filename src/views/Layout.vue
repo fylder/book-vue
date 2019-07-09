@@ -1,50 +1,12 @@
 <template>
   <div>
-      <a-layout id="components-layout-demo-fixed">
+    <a-layout id="components-layout-demo-fixed">
       <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
-        <div class="logo" />
-        <a-row>
-          <a-col :span="8" :offset="16">
-            <div v-if="this.$store.state.login">
-              <a-menu
-                theme="dark"
-                mode="horizontal"
-                :defaultSelectedKeys="['2']"
-                :style="{ lineHeight: '64px' }"
-              >
-                <a-menu-item key="1">
-                  <router-link to="/">Home</router-link>
-                </a-menu-item>
-                <a-menu-item key="2">
-                  <router-link to="/about">About</router-link>
-                </a-menu-item>
-                 <a-menu-item key="3">
-                  <router-link to="/album">Album</router-link>
-                </a-menu-item>
-                <a-menu-item key="4">
-                  <span type="primary" v-on:click="logout">{{this.$store.state.user.username}}:Exit</span>
-                </a-menu-item>
-              </a-menu>
-            </div>
-            <div v-else>
-              <a-menu
-                theme="dark"
-                mode="horizontal"
-                :defaultSelectedKeys="['1']"
-                :style="{ lineHeight: '64px' }"
-              >
-                <a-menu-item key="1">
-                  <router-link to="/login">login</router-link>
-                </a-menu-item>
-              </a-menu>
-            </div>
-          </a-col>
-        </a-row>
+        <y-menu></y-menu>
       </a-layout-header>
-      <a-layout-content :style="{ padding: '0 50px', marginTop: '64px' }">
-        <a-breadcrumb :style="{ margin: '16px 0' }"></a-breadcrumb>
-        <div :style="{ background: '#fff', padding: '24px', minHeight: '480px' }">
-          <router-view />
+      <a-layout-content :style="{ padding: '0 50px', marginTop: '64px'}">
+        <div class="layout" :style="{minHeight: this.styles.height}">
+          <router-view/>
         </div>
       </a-layout-content>
       <a-layout-footer :style="{ textAlign: 'center' }">Ant Design ©2018 Created by Ant UED</a-layout-footer>
@@ -54,17 +16,27 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import YMenu from "@/components/YMenu.vue";
 
-@Component
-export default class Layout extends Vue { 
-  logout() {
-    this.$store.dispatch("logout").then(() => {
-      this.$router.push({ path: "/login" });
-    });
-  }}
+@Component({
+  components: {
+    YMenu
+  }
+})
+export default class Layout extends Vue {
+  styles = {
+    height: ""
+  };
+  mounted() {
+    this.styles.height = window.innerHeight - 64 - 69 + "px";
+    window.onresize = () => {
+      this.styles.height = window.innerHeight - 64 - 69 + "px";
+    };
+  }
+}
 </script>
 
-<style>
+<style scoped>
 #nav {
   padding: 30px;
 }
@@ -76,5 +48,9 @@ export default class Layout extends Vue {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.layout {
+  padding: 24px;
 }
 </style>

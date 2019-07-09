@@ -6,7 +6,7 @@ interface UserState {
 }
 
 const UserState = {
-  login: true,
+  login: false,
   user: new UserModel()
 };
 

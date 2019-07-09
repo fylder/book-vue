@@ -83,6 +83,7 @@ export default {
               password: values.password
             })
             .then(() => {
+              window.localStorage.setItem("username", values.userName);
               this.$router.push({ path: "/about" });
             });
         }
