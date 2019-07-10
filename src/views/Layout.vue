@@ -4,7 +4,7 @@
       <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
         <y-menu></y-menu>
       </a-layout-header>
-      <a-layout-content :style="{ padding: '0 50px', marginTop: '64px'}">
+      <a-layout-content class="content">
         <div class="layout" :style="{minHeight: this.styles.height}">
           <router-view/>
         </div>
@@ -45,11 +45,13 @@ export default class Layout extends Vue {
   font-weight: bold;
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
+.content {
+  padding: 0 50px;
+  margin-top: 64px;
+}
 .layout {
   padding: 24px;
 }

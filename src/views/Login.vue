@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <a-row>
-      <a-col :span="6" :offset="9">
+    <a-row type="flex" justify="center" align="top">
+      <a-col :xs="16" :sm="16" :md="10" :lg="8" :xl="5">
         <div class="login">
           <a-form
             id="components-form-demo-normal-login"
@@ -10,7 +10,7 @@
             @submit="handleSubmit"
           >
             <div>
-              <h2>Login</h2>
+              <h2 class="login_title">Login</h2>
             </div>
             <a-form-item>
               <a-input
@@ -105,5 +105,8 @@ export default {
 .login {
   width: 100%;
   margin-top: 20%;
+}
+.login_title {
+  font-size: 1.8rem;
 }
 </style>

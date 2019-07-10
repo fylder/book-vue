@@ -10,11 +10,6 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/home",
-      name: "home",
-      component: Home
-    },
-    {
       path: "/login",
       name: "login",
       component: () => import("./views/Login.vue")
@@ -25,6 +20,11 @@ export default new Router({
       component: Layout,
       redirect: "/home",
       children: [
+        {
+          path: "home",
+          name: "home",
+          component: Home
+        },
         {
           path: "album",
           component: () => import("./views/Album.vue"),
