@@ -1,11 +1,12 @@
 <template>
-    <div class="album">
+    <div>
         <h1>This is an album page</h1>
-        <a-row type="flex">
-            <div v-for="n in 6" :key="n">
-                <a-col class="album-card" :xs="2" :sm="4" :md="6" :lg="8" :xl="6">
-                    <a-card hoverable>
+        <a-row type="flex" align="top">
+            <a-col v-for="n in 6" :key="n" :xs="24" :sm="12" :md="8" :lg="8" :xl="6">
+                <div class="album-lay">
+                    <a-card class="album-card" hoverable>
                         <img
+                            class="album-img"
                             alt="example"
                             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                             slot="cover"
@@ -14,8 +15,8 @@
                             <template slot="description">www.instagram.com</template>
                         </a-card-meta>
                     </a-card>
-                </a-col>
-            </div>
+                </div>
+            </a-col>
         </a-row>
     </div>
 </template>
@@ -26,9 +27,14 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Album extends Vue {}
 </script>
 <style>
+.album-lay {
+  padding: 0.2rem 0.4rem;
+}
 .album-card {
   width: 100%;
-  min-height: 10rem;
-  padding: 1rem;
+}
+.album-img {
+  width: 100%;
+  height: 220px;
 }
 </style>
